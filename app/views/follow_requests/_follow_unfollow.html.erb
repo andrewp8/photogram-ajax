@@ -2,11 +2,11 @@
   <% follow_request = current_user.sent_follow_requests.find_by(recipient: recipient) %>
   <% if follow_request %>
     <% if follow_request.pending? %>
-      <%= link_to follow_request, id: "unfollow_request_#{follow_request.recipient_id}", method: :delete, remote: true, class: "btn btn-outline-secondary" do %>
+      <%= link_to follow_request, method: :delete, remote: true, class: "btn btn-outline-secondary unfollow_request_#{follow_request.recipient_id}" do %>
         Un-request
       <% end %>
     <% elsif follow_request.accepted? %>
-      <%= link_to follow_request, id: "unfollow_request_#{follow_request.recipient_id}", method: :delete, remote: true, class: "btn btn-outline-secondary" do %>
+      <%= link_to follow_request, method: :delete, remote: true, class: "btn btn-outline-secondary unfollow_request_#{follow_request.recipient_id}" do %>
         Un-follow
       <% end %>
     <% end %>
@@ -14,3 +14,4 @@
     <%= render "follow_requests/form", follow_request: recipient.received_follow_requests.build %>
   <% end %>
 <% end %>
+
