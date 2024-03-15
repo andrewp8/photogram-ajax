@@ -1,0 +1,10 @@
+var icon = $("#<%= dom_id(@like.photo) %>_likes_icon");
+icon.removeClass("fas fa-heart fa-fw").addClass("fas fa-heart-crack");
+
+setTimeout(function() {
+var existingLikes = $("#<%= dom_id(@like.photo) %>_likes")
+var updatedLikes = $("<%= j(render "photos/likes", photo: @like.photo) %>")
+existingLikes.replaceWith(updatedLikes)
+
+icon.removeClass("fas fa-heart-crack").addClass("fas fa-heart fa-fw");
+}, 500);
