@@ -1,0 +1,6 @@
+
+var existingRequest = $("#<%= dom_id(@follow_request) %>");
+
+var updatedRequest = $("<%= j(render "follow_unfollow", sender: @follow_request.sender, recipient: @follow_request.recipient  ) %>")
+
+existingRequest.replaceWith(updatedRequest)
