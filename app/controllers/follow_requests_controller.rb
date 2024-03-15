@@ -13,6 +13,7 @@ class FollowRequestsController < ApplicationController
   # GET /follow_requests/new
   def new
     @follow_request = FollowRequest.new
+    
   end
 
   # GET /follow_requests/1/edit
@@ -27,8 +28,8 @@ class FollowRequestsController < ApplicationController
     respond_to do |format|
       if @follow_request.save
         format.html { redirect_back fallback_location: root_url, notice: "Follow request was successfully created." }
-        format.json { render :show, status: :created, location: @follow_request }
         format.js
+        format.json { render :show, status: :created, location: @follow_request }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @follow_request.errors, status: :unprocessable_entity }

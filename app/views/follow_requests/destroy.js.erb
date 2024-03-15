@@ -1,6 +1,6 @@
+console.log("destroy")
+var existingRequest = $("#unfollow_request_<%= @follow_request.recipient_id %>");
 
-var existingRequest = $("#<%= dom_id(@follow_request) %>");
-
-var updatedRequest = $("<%= j(render "follow_unfollow", sender: @follow_request.sender, recipient: @follow_request.recipient  ) %>")
-
+console.log(existingRequest[0])
+var updatedRequest = $("<%= j(render "form", follow_request: @follow_request  ) %>")
 existingRequest.replaceWith(updatedRequest)
